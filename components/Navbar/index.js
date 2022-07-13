@@ -18,8 +18,10 @@ export default function Navbar(props) {
   return (
     <div className={styles.container}>
       <div className={styles.brand}>
-        <Link href="/">
-          <Image width={130} height={130} src="/static/netflix.svg" />
+        <Link href="/" passHref>
+          <a>
+            <Image width={130} height={130} src="/static/netflix.svg" />
+          </a>
         </Link>
       </div>
       <ul className={styles.navbarLinks}>

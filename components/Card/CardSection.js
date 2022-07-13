@@ -7,8 +7,8 @@ export default function CardSection(props) {
     <section className="cardSectionWrapper">
       <h1 className={styles.mainTitle}>{title}</h1>
       <div className={styles.cardWrapper}>
-        {videos.map((video) => (
-          <Card size="large" video={video} />
+        {videos.map((video, idx) => (
+          <Card key={idx} size="large" video={video} />
         ))}
       </div>
     </section>
