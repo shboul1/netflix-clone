@@ -8,11 +8,12 @@ body {
   background-color: var(--black40);
   color: white;
   overflow-x: hidden;
+  height: 500vh;
 }
 
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent; 
 }
 
 a {
@@ -42,6 +43,9 @@ ul,
 li {
   margin: 0;
 }
+ul {
+  list-style: none;
+}
 
 h1 {
   font-weight: 800;
@@ -64,6 +68,12 @@ button {
   margin: 0;
   border: 0px;
   outline: 0px;
+}
+.cardSectionWrapper {
+  padding: 0 2rem;
+  margin: 0 auto;
+  margin-top: 5rem;
+  width: 80%;
 }
 
 :root {

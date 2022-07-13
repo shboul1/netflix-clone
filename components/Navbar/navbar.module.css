@@ -1,0 +1,44 @@
+.container {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    z-index: 3;
+    background: linear-gradient(
+    to bottom,
+    #000, 
+    transparent
+  );
+  min-height: 100px;
+
+}
+
+.navbarLinks {
+    flex: 1;
+    display: flex;
+    column-gap: 1.5rem;
+    cursor: pointer;
+}
+.email {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+    cursor: pointer;
+    position: relative;
+}
+.dropDownContainer {
+    position: absolute;
+    background-color: var(--black50);
+    border-width: 1px;
+    color: var(--white);
+    border-radius: 0.25rem /* 4px */;
+    border-color: var(--blue);
+    box-shadow: var(--shadow30, 0 0 #0000), var(--ring-shadow, 0 0 #0000),
+      var(--shadow30);
+      top: 25px;
+      padding: 0.5rem 1rem;
+}
+.brand {
+    cursor: pointer;
+}
