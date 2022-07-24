@@ -6,15 +6,17 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 // styles
 import styles from './navbar.module.css';
-
-export default function Navbar(props) {
+import { magic } from '../../lib/magic-links';
+export default function Navbar({ email, login }) {
   const [DropDownOpened, setDropDownOpened] = useState(false);
   const { push } = useRouter();
-  const handleSignOut = () => {
-    console.log('Signed out');
-    setDropDownOpened(false);
+  const handleSignOut = async () => {
+    const response = await magic.user.logout();
+    if (response) {
+      push('/login');
+      setDropDownOpened(false);
+    }
   };
-  const { email } = props;
   return (
     <div className={styles.container}>
       <div className={styles.brand}>
@@ -24,19 +26,23 @@ export default function Navbar(props) {
           </a>
         </Link>
       </div>
-      <ul className={styles.navbarLinks}>
-        <li onClick={() => push('/')}>Home</li>
-        <li onClick={() => push('/browse/my-list')}>My List</li>
-      </ul>
-      <p className={styles.email} onClick={() => setDropDownOpened(!DropDownOpened)}>
-        {email}
-        <Image width={15} height={15} src="/static/expand_more.svg" />
-        {DropDownOpened && (
-          <div className={styles.dropDownContainer} onClick={handleSignOut}>
-            Sign Out
+      {!login && (
+        <>
+          <ul className={styles.navbarLinks}>
+            <li onClick={() => push('/')}>Home</li>
+            <li onClick={() => push('/browse/my-list')}>My List</li>
+          </ul>
+          <div className={styles.email} onClick={() => setDropDownOpened(!DropDownOpened)}>
+            {email ? email : 'Loading...'}
+            <Image width={15} height={15} src="/static/expand_more.svg" />
+            {DropDownOpened && (
+              <div className={styles.dropDownContainer} onClick={handleSignOut}>
+                Sign Out
+              </div>
+            )}
           </div>
-        )}
-      </p>
+        </>
+      )}
     </div>
   );
 }

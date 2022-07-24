@@ -1,0 +1,57 @@
+.loginContainer {
+    background: url('/static/netflix-background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loginContainer::after {
+    content: "";
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.633);
+    left: 0;
+    top: 0;
+}
+.signInCard {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0,0,0,.75);
+    padding: 2rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 400px;
+    min-height: 300px;
+    justify-content: center;
+}
+.signInCard h3 {
+    font-size: 40px;
+    letter-spacing: 2px;
+    margin-bottom: 2rem
+}
+.signInCard input[type='text'] {
+    padding: 1rem;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #333333;
+    outline: none;
+    color: #fff;
+}
+.signInCard button {
+    padding: 1rem;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #E50914;
+    color: #fff;
+    cursor: pointer;
+}
